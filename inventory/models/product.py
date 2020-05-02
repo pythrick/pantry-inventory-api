@@ -14,7 +14,7 @@ class Product(ModelMixin):
         abstract = False
 
     name = models.CharField(_("Name"), max_length=100)
-    description = models.TextField(_("Description"))
+    description = models.TextField(_("Description"), null=True, blank=True)
     unit_of_measurement = models.ForeignKey(
         "UnitOfMeasurement", models.PROTECT, "products", "product"
     )
