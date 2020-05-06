@@ -5,13 +5,16 @@ from mixer.backend.django import mixer
 
 
 @pytest.mark.django_db
-class TestShoppingItemModel:
+class TestItemModel:
     def test_pk(self):
-        obj = mixer.blend("inventory.ShoppingItem")
+        obj = mixer.blend("inventory.app.Item")
         assert isinstance(
             obj.pk, uuid.UUID
         ), f"The {obj.__class__.__name__} pk should be an UUID field."
 
     def test_string(self):
-        obj = mixer.blend("inventory.ShoppingItem")
-        assert str(obj) == f"{obj.shopping_list} - {obj.product}"
+        obj = mixer.blend("inventory.app.Item")
+        assert (
+            str(obj)
+            == f"{obj.product}: {obj.amount} {obj.product.unit_of_measurement.name}"
+        )

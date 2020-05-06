@@ -1,10 +1,12 @@
 default:
   # APP specific settings
-  server: rodrigues-inventory.com.br
-
+  server: foo.com
+  username: default user
+  password: false
+  foo: bar
   # Django Required starting settings
-  SECRET_KEY: bgmwxQ67tTyfFNB9hmbx2wbdcViWwp4h
-  AUTH_USER_MODEL: inventory.User
+  SECRET_KEY: 1234
+  AUTH_USER_MODEL: app.User
   STATIC_URL: /static/
   STATIC_ROOT: static
   ALLOWED_HOSTS:
@@ -16,7 +18,7 @@ default:
     - django.contrib.sessions
     - django.contrib.messages
     - django.contrib.staticfiles
-    - inventory
+    - inventory.app
   MIDDLEWARE:
     - django.middleware.security.SecurityMiddleware
     - django.contrib.sessions.middleware.SessionMiddleware
@@ -25,10 +27,10 @@ default:
     - django.contrib.auth.middleware.AuthenticationMiddleware
     - django.contrib.messages.middleware.MessageMiddleware
     - django.middleware.clickjacking.XFrameOptionsMiddleware
-  ROOT_URLCONF: src.urls
-  WSGI_APPLICATION: src.wsgi.application
+  ROOT_URLCONF: inventory.urls
+  WSGI_APPLICATION: inventory.wsgi.application
   LANGUAGE_CODE: en-us
-  TIME_ZONE: America/Sao_Paulo
+  TIME_ZONE: UTC
   USE_I18N: true
   USE_L10N: true
   USE_TZ: true
@@ -58,13 +60,28 @@ default:
       NAME: db.sqlite3
 
 development:
-  server: dev.rodrigues-inventory.com.br
+  username: dev user
+  foo: bar dev
+  server: devserver.com
 
 production:
-  server: rodrigues-inventory.com.br
+  server: prodserver.com
+  username: prod user
+  foo: bar prod
+  value: this value is for django app
 
 staging:
-  server: stage.rodrigues-inventory.com.br
+  server: stagingserver.com
+  username: staging user
+  foo: bar stag
 
 testing:
-  server: test.rodrigues-inventory.com.br
+  server: stagingserver.com
+  username: testing user
+  foo: bar testing
+
+customenv:
+  server: customserver.com
+
+global:
+  foo: It overrides every other env

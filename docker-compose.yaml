@@ -4,10 +4,10 @@ services:
   app: &app
     build:
       context: .
-    image: inventory_api
+    image: inventory
     volumes:
       - .:/usr/app
-    command: gunicorn -t 600 -w 4 -b 0.0.0.0:80 --log-level=debug src.wsgi
+    command: gunicorn -t 600 -w 4 -b 0.0.0.0:80 --log-level=debug inventory.wsgi
     env_file: &envfile
       - .env
     ports:

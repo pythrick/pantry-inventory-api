@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "inventory"
 version = "0.1.0"
-description = "Inventory API"
+description = "Inventory"
 authors = ["Patrick <patrick.pwall@gmail.com>"]
 
 [tool.poetry.dependencies]

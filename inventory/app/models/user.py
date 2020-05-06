@@ -3,13 +3,13 @@ from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from inventory.managers import UserManager
-from inventory.mixins import ModelMixin
+from inventory.app.managers import UserManager
+from inventory.app.mixins import ModelMixin
 
 
 class User(ModelMixin, AbstractBaseUser, PermissionsMixin):
     class Meta:
-        app_label = "inventory"
+        app_label = "app"
         db_table = "users"
         ordering = ("created_at",)
         verbose_name = _("User")

@@ -9,8 +9,8 @@ omit =
   *urls.py
   *wsgi.py
   manage.py
-  src/wsgi.py
-  src/asgi.py
+  *wsgi.py
+  *asgi.py
   conftest.py
   *__init__.py
 

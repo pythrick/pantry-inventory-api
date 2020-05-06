@@ -38,11 +38,3 @@ repos:
         entry: poetry run pytest
         pass_filenames: false
         types: [python]
-
-      - id: pytest-cov
-        name: pytest
-        stages: [push]
-        language: system
-        entry: pipenv run pytest --cov --cov-fail-under=100
-        types: [python]
-        pass_filenames: false

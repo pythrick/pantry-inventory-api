@@ -1,6 +1,6 @@
 import pytest
 
-from inventory.models import User
+from inventory.app.models import User
 
 
 @pytest.mark.django_db
